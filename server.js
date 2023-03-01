@@ -37,22 +37,6 @@ var head=req.headers;
 console.log(head)
 console.log(req.body)
  console.log("ffff")
- var headerss=JSON.stringify(head).replace("'{","").replace("}'","").replace("host","hello").replace("content-length","content2")
- requester.post({
-    headers:JSON.parse(headerss),
-    url:     'http://127.0.0.1',
-    body:   req.body,
-    json: true
-  }, function(error, response, body){
-      console.log("ffff")
-      console.log(body)
-      res.set(response.headers);
-      console.log(response.statusCode)
-      res.statusCode = response.statusCode;
-      res.send(body);
-  });
-
-
 });
 
 app.listen(process.env.PORT, "0.0.0.0", function() {
