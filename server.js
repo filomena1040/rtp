@@ -6,7 +6,7 @@ var app = express();
 app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 app.use(bodyParser.json({limit: '50mb'}));
 app.use(bodyParser.raw());
-app.set('443', process.env.PORT);
+app.set('port', process.env.PORT);
 
 app.post("/",function (req, res) {
 var head=req.headers;
@@ -53,7 +53,7 @@ console.log(req.body)
   });
 });
 
-app.listen(443, "0.0.0.0", function() {
+app.listen(process.env.PORT, "0.0.0.0", function() {
     console.log(app.get('port'))
     console.log("Starting listen...");
 });
