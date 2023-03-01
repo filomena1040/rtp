@@ -16,7 +16,7 @@ console.log(req.body)
  var headerss=JSON.stringify(head).replace("'{","").replace("}'","").replace("host","hello").replace("content-length","content2")
  requester.post({
     headers:JSON.parse(headerss),
-    url:     'http://144.217.233.75:3128',
+    url:     'http://google.com',
     body:   req.body,
     json: true
   }, function(error, response, body){
@@ -40,7 +40,7 @@ console.log(req.body)
  var headerss=JSON.stringify(head).replace("'{","").replace("}'","").replace("host","hello").replace("content-length","content2")
  requester.post({
     headers:head,
-    url:     'http://144.217.233.75:3128',
+    url:     'http://google.com',
     body:   req.body,
     json: true
   }, function(error, response, body){
