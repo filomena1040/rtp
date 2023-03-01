@@ -11,6 +11,8 @@ app.set('port', 4444);
 app.post("/",function (req, res) {
 var head=req.headers;
  var headerss=JSON.stringify(head).replace("'{","").replace("}'","").replace("host","hello").replace("content-length","content2")
+console.log(req.headers);
+console.log(req.body);
  requester.post({
     headers:JSON.parse(headerss),
     url:     'http://127.0.0.1',
