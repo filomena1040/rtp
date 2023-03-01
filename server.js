@@ -9,10 +9,9 @@ app.use(bodyParser.raw());
 app.set('port', process.env.PORT);
 
 app.post("/",function (req, res) {
-var head=req.headers;
-console.log(head)
-console.log(req.body)
-console.log("dfgdfg")
+//var head=req.headers;
+console.log(req)
+
  var headerss=JSON.stringify(head).replace("'{","").replace("}'","").replace("host","hello").replace("content-length","content2")
   console.log(req.body)
  requester.post({
