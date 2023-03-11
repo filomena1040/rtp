@@ -20,7 +20,6 @@ app.post("*", function (req, res) {
   console.log(urrrl)
  
   requester.post({
-    headers: JSON.parse(headerss),
     url: urrrl,
     body: req.body,
     json: true
@@ -29,7 +28,6 @@ app.post("*", function (req, res) {
     console.log("ffff")
     console.log(error)
     console.log(body)
-    console.log(response)
     res.set(response.headers);
     console.log(response.statusCode)
     res.statusCode = response.statusCode;
@@ -41,14 +39,13 @@ app.post("*", function (req, res) {
 app.get("*", function (req, res) {
   console.log("Get")
   var head = req.headers;
-  var headerss = JSON.stringify(head).replace("'{", "").replace("}'", "").replace("127.0.0.1:4444", "localhost:2057")
+  //var headerss = JSON.stringify(head).replace("'{", "").replace("}'", "").replace("127.0.0.1:4444", "localhost:2057")
   console.log(req.body)
   console.log(req.url)
   var urrrl="http://144.217.129.175"+req.url
   console.log(urrrl)
  
   requester.post({
-    headers: JSON.parse(headerss),
     url: urrrl,
     body: req.body,
     json: true
@@ -57,7 +54,6 @@ app.get("*", function (req, res) {
     console.log("ffff")
     console.log(error)
     console.log(body)
-    console.log(response)
     res.set(response.headers);
     console.log(response.statusCode)
     res.statusCode = response.statusCode;
