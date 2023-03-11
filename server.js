@@ -14,10 +14,7 @@ app.post("*", function (req, res) {
   console.log("post")
   var head = req.headers;
   var headerss = JSON.stringify(head).replace("'{", "").replace("}'", "").replace("127.0.0.1:4444", "144.217.129.175")
-  console.log(req.body)
-  console.log(req.url)
   var urrrl="http://144.217.129.175"+req.url
-  console.log(urrrl)
  console.log(head)
   requester.post({
     headers: head,
@@ -26,9 +23,6 @@ app.post("*", function (req, res) {
     json: false
   }, function (error, response, body) {
     response.setEncoding('utf8');
-    console.log("ffff")
-    console.log(error)
-    console.log(body)
     res.set(response.headers);
     console.log(response.statusCode)
     res.statusCode = response.statusCode;
@@ -41,8 +35,6 @@ app.get("*", function (req, res) {
   console.log("Get")
   var head = req.headers;
   var headerss = JSON.stringify(head).replace("'{", "").replace("}'", "").replace("127.0.0.1:4444", "localhost:2057")
-  console.log(req.body)
-  console.log(req.url)
   var urrrl="http://144.217.129.175"+req.url
   console.log(urrrl)
  
@@ -53,9 +45,6 @@ app.get("*", function (req, res) {
     json: true
   }, function (error, response, body) {
     response.setEncoding('utf8');
-    console.log("ffff")
-    console.log(error)
-    console.log(body)
     res.set(response.headers);
     console.log(response.statusCode)
     res.statusCode = response.statusCode;
