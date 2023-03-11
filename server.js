@@ -13,9 +13,7 @@ app.set('port',  process.env.PORT);
 app.post("*", function (req, res) {
   console.log("post")
   var head = req.headers;
-  var headerss = JSON.stringify(head).replace("'{", "").replace("}'", "").replace("127.0.0.1:4444", "localhost:2057")
-  console.log(head)
-  console.log(JSON.parse(headerss))
+  var headerss = JSON.stringify(head).replace("'{", "").replace("}'", "").replace("127.0.0.1:4444", "144.217.129.175")
   console.log(req.body)
   console.log(req.url)
   var urrrl="http://144.217.129.175"+req.url
@@ -44,8 +42,6 @@ app.get("*", function (req, res) {
   console.log("Get")
   var head = req.headers;
   var headerss = JSON.stringify(head).replace("'{", "").replace("}'", "").replace("127.0.0.1:4444", "localhost:2057")
-  console.log(head)
-  console.log(JSON.parse(headerss))
   console.log(req.body)
   console.log(req.url)
   var urrrl="http://144.217.129.175"+req.url
