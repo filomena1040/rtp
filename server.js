@@ -20,6 +20,7 @@ app.post("*", function (req, res) {
   console.log(urrrl)
  
   requester.post({
+    headers: head,
     url: urrrl,
     form: req.body,
     json: false
