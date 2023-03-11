@@ -21,8 +21,7 @@ app.post("*", function (req, res) {
  
   requester.post({
     url: urrrl,
-    body: req.body,
-    json: true
+    body: req.body
   }, function (error, response, body) {
     response.setEncoding('utf8');
     console.log("ffff")
