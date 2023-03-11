@@ -18,7 +18,7 @@ app.post("*", function (req, res) {
   console.log(req.url)
   var urrrl="http://144.217.129.175"+req.url
   console.log(urrrl)
- 
+ console.log(head)
   requester.post({
     headers: head,
     url: urrrl,
