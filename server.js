@@ -8,14 +8,14 @@ app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.text({ type: 'text/html' }))
 app.use(bodyParser.raw());
-app.set('port',  process.env.PORT);
+app.set('port', "4444");
 
 app.post("*", function (req, res) {
   console.log("post")
   var head = req.headers;
   var headerss = JSON.stringify(head).replace("'{", "").replace("}'", "").replace("127.0.0.1:4444", "144.217.129.175")
-  var urrrl="http://144.217.129.175"+req.url
- console.log(head)
+  var urrrl = "http://144.217.129.175" + req.url
+  console.log(head)
   requester.post({
     headers: head,
     url: urrrl,
@@ -35,25 +35,42 @@ app.get("*", function (req, res) {
   console.log("Get")
   var head = req.headers;
   var headerss = JSON.stringify(head).replace("'{", "").replace("}'", "").replace("127.0.0.1:4444", "localhost:2057")
-  var urrrl="http://144.217.129.175"+req.url
+  var querystring=req.url
+  var urrrl = "http://144.217.129.175" + querystring
   console.log(urrrl)
- 
-  requester.post({
-    headers: head,
-    url: urrrl,
-    body: req.body,
-    json: true
-  }, function (error, response, body) {
-    response.setEncoding('utf8');
-    res.set(response.headers);
-    console.log(response.statusCode)
-    res.statusCode = response.statusCode;
-    res.send(body);
-  });
+  if (!querystring.includes("assets") || !querystring.includes(".")) {
+
+    requester.post({
+      headers: head,
+      url: urrrl,
+      body: req.body,
+      json: true
+    }, function (error, response, body) {
+      response.setEncoding('utf8');
+      res.set(response.headers);
+      console.log(response.statusCode)
+      res.statusCode = response.statusCode;
+      res.send(body);
+    });
+
+
+  } else {
+
+    requester.get({
+      url: urrrl
+    }, function (error, response, body) {
+      res.set(response.headers);
+      console.log(response.statusCode)
+      res.statusCode = response.statusCode;
+      res.send(body);
+    });
+
+  }
+
 
 });
 
-app.listen( process.env.PORT, "0.0.0.0", function () {
+app.listen("4444", "0.0.0.0", function () {
   console.log(app.get('port'))
   console.log("Starting listen...");
 });
