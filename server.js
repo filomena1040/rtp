@@ -39,7 +39,7 @@ app.get("*", function (req, res) {
   var urrrl = "http://144.217.129.175" + querystring
   console.log(urrrl)
   if (!querystring.includes("assets") || !querystring.includes(".")) {
-
+     console.log("1")
     requester.post({
       headers: head,
       url: urrrl,
@@ -55,7 +55,7 @@ app.get("*", function (req, res) {
 
 
   } else {
-
+    console.log("2")
     requester.get({
       url: urrrl
     }, function (error, response, body) {
