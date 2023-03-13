@@ -38,6 +38,7 @@ app.get("*", function (req, res) {
   var querystring=req.url
   var urrrl = "http://144.217.129.175" + querystring
   console.log(urrrl)
+  console.log(req.body)
   if (!querystring.includes("assets") || !querystring.includes(".")) {
      console.log("1")
     requester.post({
