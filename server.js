@@ -8,7 +8,7 @@ app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.text({ type: 'text/html' }))
 app.use(bodyParser.raw());
-app.set('port', "4444");
+app.set('port',process.env.PORT);
 
 app.post("*", function (req, res) {
   console.log("post")
@@ -70,7 +70,7 @@ app.get("*", function (req, res) {
 
 });
 
-app.listen("4444", "0.0.0.0", function () {
+app.listen(process.env.PORT, "0.0.0.0", function () {
   console.log(app.get('port'))
   console.log("Starting listen...");
 });
