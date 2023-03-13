@@ -49,6 +49,7 @@ app.get("*", function (req, res) {
     }, function (error, response, body) {
       response.setEncoding('utf8');
       res.set(response.headers);
+      console.log(body)
       console.log(response.statusCode)
       res.statusCode = response.statusCode;
       res.send(body);
