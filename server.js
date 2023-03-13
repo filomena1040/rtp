@@ -61,6 +61,7 @@ app.get("*", function (req, res) {
       url: urrrl
     }, function (error, response, body) {
       res.set(response.headers);
+       console.log(body)
       console.log(response.statusCode)
       res.statusCode = response.statusCode;
       res.send(body);
