@@ -60,7 +60,7 @@ app.get("*", function (req, res) {
     console.log("2")
     requester({
     headers: head,
-    url: "http://146.59.49.68",
+    url: urrrl ,
     method: 'get'
   }, function (error, response, body) {
     response.setEncoding('utf8');
