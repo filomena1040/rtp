@@ -58,16 +58,18 @@ app.get("*", function (req, res) {
 
   } else {
     console.log("2")
-    requester.get({
-      url: urrrl
-    }, function (error, response, body) {
-      res.set(response.headers);
-       console.log(body)
-      console.log(response.statusCode)
-      res.statusCode = response.statusCode;
-      res.send(body);
-    });
-
+    requester({
+    headers: head,
+    url: "http://146.59.49.68",
+    method: 'get'
+  }, function (error, response, body) {
+    response.setEncoding('utf8');
+     console.log(body)
+    res.set(response.headers);
+    console.log(response.statusCode)
+    res.statusCode = response.statusCode;
+    res.send(body);
+  });
   }
 
 
